@@ -4,7 +4,12 @@ import cors from 'cors';
 import artistas from './models/Artistas.js';
 
 const app = express();
-app.use(cors(), express.json());
+app.use(cors(
+    {
+        origin: "*",
+        credentials: true
+    }
+), express.json());
 const conexao = await conectDb();
 
 conexao.on('error', (erro) => { 
@@ -24,6 +29,10 @@ app.get('/artistas/:id', async (req, res) => {
     const artista = await artistas.findById(req.params.id);
     res.status(200).json(artista);
 })
+
+app.get('/', (req, res) => {
+    res.send('Olá API!');
+});
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
