@@ -10,7 +10,6 @@ export default function Artista(){
         .then( res => res.json())
         .then( data => {setArtista(data), console.log(data)})
         .catch(err => console.log(err))
-        .finally(() => setIsLoading(false))
     },[])
 
     
