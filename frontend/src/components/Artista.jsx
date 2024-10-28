@@ -6,15 +6,17 @@ export default function Artista(){
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/artistas/${id}`)
+        fetch(`https://spotyglserver.vercel.app/artistas/${id}`)
         .then( res => res.json())
-        .then( data => setArtista(data))
-    }, [])
+        .then( data => {setArtista(data), console.log(data)})
+        .catch(err => console.log(err))
+        .finally(() => setIsLoading(false))
+    },[])
 
     
     return( 
         <>
-        <div className="bg-vermelho rounded-lg mb-2 w-8/12   justify-items-start pl-7 pt-7 pb-7">
+        <div className="bg-vermelho rounded-lg mb-2 w-8/12 justify-items-start p-7">
             <Link to="/">
                 <div className="container mb-4 ">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,9 +24,9 @@ export default function Artista(){
                     </svg>
                 </div>
             </Link>
-            <div className="flex">
+            <div className="flex items-center">
                 <img src={artista.foto} alt="Capa do artista" className="rounded-lg w-[200px] h-[200px]"/>
-                <h1 className="text-8xl font-bold text-white mt-28 ml-6">{artista.name}</h1>
+                <h1 className="text-8xl font-bold text-white ml-6">{artista.name}</h1>
             </div>
             <h1 className="text-xl font-bold text-white mt-2 mb-4">{artista.genero}</h1>
 

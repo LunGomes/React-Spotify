@@ -31,10 +31,10 @@ export default function ConteudoPrincipal() {
 
     return (
       <>
-        <div className="bg-vermelho rounded-lg mb-2 w-8/12 grid grid-cols-1 justify-items-start pl-7 pt-7  pb-7">
+        <div className="bg-vermelho rounded-lg mb-2 w-8/12 grid grid-cols-1 justify-items-start p-4">
           
           <h1 className="text-white text-2xl font-bold mb-2">Rock</h1>
-          <div className="grid grid-cols-5 ml-6">
+          <div className="grid grid-cols-5 gap-2 ml-6">
             {artistas
             .filter( genero => genero.genero.includes("Rock"))
             .sort((a, b) => a.name.localeCompare(b.name))
@@ -45,6 +45,7 @@ export default function ConteudoPrincipal() {
             <div className="w-36 h-36 mr-12 flex flex-col justify-start items-center pt-3 relative rounded-md overflow-hidden" style={{backgroundColor: randomColor}}>
                 <h1 className="w-3/4 h-7 text-white font-bold">{artista.name}</h1>
                 <img src={artista.foto} alt="Capa do Album" className="w-2/3 h-2/3 absolute bottom-0 -right-2 rounded-lg rotate-[25deg] translate-x-[18%] translate-y-[-2%]" />
+                        {/*? artista.foto : "/capa.jpg"*/}
             </div>            
             </Link>
             </div>
@@ -52,7 +53,7 @@ export default function ConteudoPrincipal() {
             </div>
 
           <h1 className="text-white text-2xl font-bold mb-2 mt-2">Pop</h1>
-          <div className="grid grid-cols-5 ml-6 ">
+          <div className="grid grid-cols-5 gap-2 ml-6 ">
             {artistas
             .filter( genero => genero.genero.includes("Pop"))
             .sort((a, b) => a.name.localeCompare(b.name))
@@ -70,7 +71,7 @@ export default function ConteudoPrincipal() {
             </div>
 
             <h1 className="text-white text-2xl font-bold mb-2 mt-2">Sertanejo</h1>
-            <div className="grid grid-cols-5 ml-6">
+            <div className="grid grid-cols-5 gap-2 ml-6">
             {artistas
             .filter( genero => genero.genero.includes("Sertanejo"))
             .sort((a, b) => a.name.localeCompare(b.name))
