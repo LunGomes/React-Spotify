@@ -6,7 +6,7 @@ export default function ConteudoPrincipal() {
     const [artistas, setArtistas] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/artistas')
+        fetch('https://spotyglserver.vercel.app/artistas')
         .then(res => res.json())
         .then(data => {setArtistas(data);console.log(data)})
         .catch(err => console.log(err))
