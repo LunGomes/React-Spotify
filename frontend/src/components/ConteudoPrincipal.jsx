@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { jelly } from 'ldrs'
+
 export default function ConteudoPrincipal() {
 
+    jelly.register()
+
     const [artistas, setArtistas] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+      setIsLoading(true);
+      setTimeout(() => {
         fetch('https://spotyglserver.vercel.app/artistas')
         .then(res => res.json())
         .then(data => {setArtistas(data);console.log(data)})
         .catch(err => console.log(err))
-        .finally(() => console.log('Finalizou a requisição'))
+        .finally(() => setIsLoading(false))
+      }, 3000)
     },[])
 
     const [randomColor, setRandomColor] = useState('')
@@ -30,9 +38,19 @@ export default function ConteudoPrincipal() {
     }, [])
 
     return (
-      <>
-        <div className="bg-vermelho rounded-lg mb-2 w-8/12 grid grid-cols-1 justify-items-start p-4">
+        <div className="bg-vermelho rounded-t-2xl w-8/12 grid grid-cols-1 justify-items-start pr-7 pl-7 pt-7 pb-4">
           
+        {isLoading ?
+          <div className="flex flex-col flex-wrap justify-center items-center w-full h-full font-bold gap-4">
+            <p className="text-xl text-white">Carregando...</p>
+              <l-jelly
+                size="55"
+                speed="0.9" 
+                color="white" 
+              ></l-jelly>
+            </div>
+          :
+          <>
           <h1 className="text-white text-2xl font-bold mb-2">Rock</h1>
           <div className="grid grid-cols-5 gap-2 ml-6">
             {artistas
@@ -87,7 +105,8 @@ export default function ConteudoPrincipal() {
             </div>
             ))}
             </div>
+            </>
+          }
         </div>
-      </>
     )
 }
