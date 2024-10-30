@@ -7,7 +7,7 @@ export default function CardSidebar() {
                 <h1>Seja bem-vindo(a) ao Spoty GL, onde você encontra o hit para o seu momento!!</h1>
             </div>
 
-            <div className="bg-white rounded-xl font-semibold p-3 flex flex-col justify-around text-center w-64 h-32">
+            <div className="bg-white rounded-xl font-semibold p-3 flex flex-col justify-around text-center w-64 h-32 ">
                 <h1>Criado pelas icônicas:</h1>
                     <h1 className="text-xl">Giovanna Bento</h1> 
                     <p>e</p> 

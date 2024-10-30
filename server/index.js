@@ -30,6 +30,13 @@ app.get('/artistas/:id', async (req, res) => {
     res.status(200).json(artista);
 })
 
+// rota pesquisar
+app.get('/pesquisar/:nome', async (req, res) => {
+    const { nome } = req.params;
+    const artista = await artistas.find({name: new RegExp(nome, 'i')});
+    res.status(200).json(artista);
+});
+
 app.get('/', (req, res) => {
     res.send('Olá API!');
 });
