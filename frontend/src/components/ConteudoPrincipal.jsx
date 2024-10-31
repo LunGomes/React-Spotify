@@ -38,7 +38,7 @@ export default function ConteudoPrincipal() {
     }, [])
 
     return (
-        <div className="bg-vermelho rounded-t-2xl w-8/12 grid grid-cols-1 justify-items-start pr-7 pl-7 pt-7 pb-4">
+        <div className="bg-vermelho rounded-t-2xl w-8/12 grid grid-cols-1 justify-items-start p-7">
           
         {isLoading ?
           <div className="flex flex-col flex-wrap justify-center items-center w-full h-full font-bold gap-4">
@@ -61,7 +61,7 @@ export default function ConteudoPrincipal() {
             <div key={artista._id}>
             <Link to={`/artistas/${artista._id}`} >
             <div className="w-36 h-36 mr-12 flex flex-col justify-start items-center pt-3 relative rounded-md overflow-hidden" style={{backgroundColor: randomColor}}>
-                <h1 className="w-3/4 h-7 text-white font-bold">{artista.name}</h1>
+                <h1 className="w-3/4 h-7 text-white font-bold z-40">{artista.name}</h1>
                 <img src={artista.foto} alt="Capa do Album" className="w-2/3 h-2/3 absolute bottom-0 -right-2 rounded-lg rotate-[25deg] translate-x-[18%] translate-y-[-2%]" />
                         {/*? artista.foto : "/capa.jpg"*/}
             </div>            
@@ -80,7 +80,7 @@ export default function ConteudoPrincipal() {
             <div key={artista._id}>
             <Link to={`/artistas/${artista._id}`} >
             <div className="w-36 h-36 mr-12 flex flex-col justify-start items-center pt-3 relative rounded-md overflow-hidden" style={{backgroundColor: randomColor}}>
-                <h1 className="w-3/4 h-7 text-white font-bold">{artista.name}</h1>
+                <h1 className="w-3/4 h-7 text-white font-bold z-40">{artista.name}</h1>
                 <img src={artista.foto} alt="Capa do Album" className="w-2/3 h-2/3 absolute bottom-0 -right-2 rounded-lg rotate-[25deg] translate-x-[18%] translate-y-[-2%]" />
             </div>            
             </Link>
